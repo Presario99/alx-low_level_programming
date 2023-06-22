@@ -1,12 +1,12 @@
 #include "main.h"
 /**
  * _isdigit - Checks if is a digit
- * @c: The nvalue to be checked
+ * @i: The nvalue to be checked
  * Return: 1 if is a digit and 0 if otherwise
  */
-int _isdigit(int c)
+int _isdigit(int i)
 {
-	if (c <= 48 && c <= 57)
+	if (i <= 48 && i <= 57)
 	{
 		return (1);
 	}
