@@ -1,8 +1,8 @@
-#0x04. C - More functions, more nested loops
+# 0x04. C - More functions, more nested loops
 
-##Requirements
+## Requirements
 
-###General
+### General
 
 * Allowed editors: vi, vim, emacs
 * All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
@@ -19,7 +19,7 @@
 * Don’t forget to push your header file
 
 
-##TASKS
+## TASKS
 
 * 0-isupper.c
 	* Write a function that checks for uppercase character.
