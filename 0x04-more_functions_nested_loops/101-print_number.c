@@ -1,12 +1,12 @@
 #include "main.h"
-#include <sstdio.h>
+#include <stdio.h>
 /**
  * print_number - prints an integer
  * @n: integer ti be printed
  */
 void print_number(int n)
 {
-	unsigned int n1 = n;
+	unsigned int k = n;
 
 	if (n < 0)
 	{
