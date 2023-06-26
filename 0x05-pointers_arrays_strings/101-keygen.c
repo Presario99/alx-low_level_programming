@@ -6,9 +6,6 @@
  * main - Generate random password for the program 101-crackme
  * Return: Always 0
  */
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
 #define PASSWORD_LENGTH 10
 
@@ -37,4 +34,3 @@ int main() {
 
     return 0;
 }
-
