@@ -7,30 +7,52 @@
  * Return: Always 0
  */
 
-#define PASSWORD_LENGTH 10
+int main(void)
+{
+	char password[84];
+	int index = 0, sum = 0, diff_half1, diff_half2;
 
-char *generate_random_password() {
-    static const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    char *password = malloc((PASSWORD_LENGTH + 1) * sizeof(char));
+	srand(time(0));
 
-    srand(time(NULL));
+	while (sum < 2772)
+	{
+		password[index] = 33 + rand() % 94;
+		sum += password[index++];
+	}
 
-    for (int i = 0; i < PASSWORD_LENGTH; i++) {
-        int index = rand() % (sizeof(charset) - 1);
-        password[i] = charset[index];
-    }
+	password[index] = '\0';
 
-    password[PASSWORD_LENGTH] = '\0';
+	if (sum != 2772)
+	{
+		diff_half1 = (sum - 2772) / 2;
+		diff_half2 = (sum - 2772) / 2;
 
-    return password;
+		if ((sum - 2772) % 2 != 0)
+		{
+			diff_half1++;
+
+		for (index = 0; password[index]; index++)
+		{
+			if (pasword[index] >= (33 + diff_half1))
+			{
+				break;
+			}
+		}
+
+		for (index = 0; password[index]; index++)
+		{
+			if (password[index] >= (33 + diff_half2))
+			{
+				password[index] -= diff_half2;
+				break;
+			}
+		}
+		}
+	}
+
+	printf("%s", password);
+	return (0);
 }
-
-int main() {
-    char *password = generate_random_password();
-
-    printf("Generated password: %s\n", password);
-
-    free(password);
-
-    return 0;
-}
+						
+			
+						
