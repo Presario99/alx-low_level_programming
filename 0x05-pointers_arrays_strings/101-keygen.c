@@ -10,7 +10,9 @@ char *generate_random_password() {
 
     srand(time(NULL));
     
-    for (int i = 0; i < PASSWORD_LENGTH; i++) {
+    int i;
+
+    for (i = 0; i < PASSWORD_LENGTH; i++) {
         int index = rand() % (sizeof(charset) - 1);
         password[i] = charset[index];
     }
