@@ -6,47 +6,19 @@
  */
 void print_number(int n)
 {
-	if (n == 0)
-	{
-		_putchar('0');
-		return;
-	}
+	unsigned int x;
 
-	int is_neg = 0;
+	x = n;
 
 	if (n < 0)
 	{
-		is_neg = 1;
-		n = -n;
-	}
-
-	int num_digits = 0;
-	int temp = n;
-
-	while (temp > 0)
-	{
-		temp /= 10;
-		num_digits++
-	}
-
-	if (is_neg)
-	{
 		_putchar('-');
+		x = -n;
 	}
 
-	int i;
-
-	for (i = num_digits - 1 i >= 0; i++)
+	if (x / 10 != 0)
 	{
-		int divisor = 1;
-
-		for (int j = 0; j < i; j++)
-		{
-			divisor *= 10;
-		}
-
-		int digit = n / divisor;
-		n %= divisor;
-		_putchar('0' + digit);
+		print_number(x / 10);
 	}
+	_putchar((x % 10) + '0');
 }
