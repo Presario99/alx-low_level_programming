@@ -74,8 +74,6 @@ char **strtow(char *str)
 		else if (c++ == 0)
 			start = i;
 	}
-
 	mat[k] = NULL;
-
 	return (mat);
 }
