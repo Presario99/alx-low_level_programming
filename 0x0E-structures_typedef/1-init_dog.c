@@ -2,8 +2,8 @@
 #include <stdlib.h>
 /**
  * init_dog - initialize a var of type struct dog
- * @d: pointer to struct dog 
- * @name: name 
+ * @d: pointer to struct dog
+ * @name: name
  * @age: age
  * @owner: owner
  */
