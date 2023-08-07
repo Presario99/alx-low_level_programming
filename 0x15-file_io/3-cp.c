@@ -58,7 +58,7 @@ void close_file(int fd)
  */
 int main(int argc, char *argv[])
 {
-	int from, to, r, w;
+	int from, to, rd, wrt;
 	char *buffer;
 
 	if (argc != 3)
@@ -69,11 +69,11 @@ int main(int argc, char *argv[])
 
 	buffer = create_buffer(argv[2]);
 	from = open(argv[1], O_RDONLY);
-	r = read(from, buffer, 1024);
+	rd = read(from, buffer, 1024);
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (from == -1 || r == -1)
+		if (from == -1 || rd == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't read from file %s\n", argv[1]);
@@ -81,8 +81,8 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 
-		w = write(to, buffer, r);
-		if (to == -1 || w == -1)
+		wrt = write(to, buffer, rd);
+		if (to == -1 || wrt == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't write to %s\n", argv[2]);
@@ -90,10 +90,10 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 
-		r = read(from, buffer, 1024);
+		rd = read(from, buffer, 1024);
 		to = open(argv[2], O_WRONLY | O_APPEND);
 
-	} while (r > 0);
+	} while (rd > 0);
 
 	free(buffer);
 	close_file(from);
